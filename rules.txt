@@ -1,0 +1,34 @@
+Jurassic Park
+
+Goal: Practice OO modelling in Java (unit tests, no UI)
+
+You have been asked to create an app to manage the dinosaur population and visitor tracking of Jurassic Park. (No expense spared)
+
+MVP
+
+The user must be able to add paddocks, add / remove dinosaurs to paddocks, feed dinosaurs. You should also be able to transfer Herbivores between paddocks. :/
+
+Project Extensions
+
+Dinosaurs marked as herbivores can live in the same paddock but those marked as carnivores can only be placed with dinosaurs of the same type.
+Dinosaurs can randomly rampage and break out of their paddocks.
+Visitors can enter / exit the park if the dinosaurs are not rampaging.
+View the number of visitors in the park at a given time.
+Anything else you can dream up!
+
+
+Sunday thoughts:
+
+Additionals
+
+If I get the MVP done soon, I'll consider the following -
+
+Set up databases. This is most likely considered MVP in my eyes, not in project spec, but you need some kind of data persistence, would be useless otherwise.
+
+Might try to also model wallets for the visitors if I have time, to allow them to shop etc. (Branching into other territory, I know, but still...)
+
+Will most likely try model an app after the MVP is tested and done, but unsure how to go about it, could perhaps make the app as a visitor app, a staff app, or an overlord app.
+
+Visitor app would probably be the easiest, as it would only involve them clicking paddocks, and maybe shops to buy merchandise.
+
+Overlord app would be tricky, and would probably have to include a random event function, where when you do something, a random event happens, ie potentially a dinosaur rampages and damages its dwelling place, forcing you to send staff there to repair. (During which another random event could occur) Would probably have visitors roaming too.

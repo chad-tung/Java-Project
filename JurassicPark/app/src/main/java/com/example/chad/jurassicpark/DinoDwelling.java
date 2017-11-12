@@ -12,18 +12,18 @@ import java.util.ArrayList;
 
 public abstract class DinoDwelling {
     private String name;
-    private Integer structuralIntegrity;
+    private int structuralIntegrity;
     private ArrayList<VisitorGroup> visitorList;
     private ArrayList<Ranger> rangerList;
 
-    public DinoDwelling(String name, Integer structuralIntegrity) {
+    public DinoDwelling(String name, int structuralIntegrity) {
         this.structuralIntegrity = structuralIntegrity;
         this.name = name;
         this.visitorList = visitorList;
         this.rangerList = rangerList;
     }
 
-    public Integer getStructuralIntegrity() {
+    public int getStructuralIntegrity() {
         return structuralIntegrity;
     }
 
