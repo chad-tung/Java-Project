@@ -28,14 +28,16 @@ public class Carnivore extends Dinosaur {
         Random rand = new Random();
         int arraySize = humans.size();
         int random = rand.nextInt(arraySize);
-        humans.remove(random);
+        Staff victim = humans.remove(random);
+        victim.perish();
     }
 
     public void randomVisitorVictim(ArrayList<Visitor> humans) {
         Random rand = new Random();
         int arraySize = humans.size();
         int random = rand.nextInt(arraySize);
-        humans.remove(random);
+        Visitor victim = humans.remove(random);
+        victim.perish();
     }
 
     public String huntHumans() {

@@ -23,4 +23,12 @@ public class Human {
         return location;
     }
 
+    public void setLocation(ParkLocation location) {
+        this.location = location;
+    }
+
+    public void perish() {
+        location = null;
+    }
+
 }

@@ -25,6 +25,7 @@ public abstract class ParkLocation {
         this.structuralIntegrity = 0;
     }
 
+//    getters
     public String getName() {
         return name;
     }
@@ -45,12 +46,15 @@ public abstract class ParkLocation {
         return structuralIntegrity;
     }
 
+//    setter
     public void setStructuralIntegrity(int structuralIntegrity) {
         this.structuralIntegrity = structuralIntegrity;
     }
 
+//    adding and removing people/dinosaurs
     public void addVisitor(Visitor visitor) {
         visitorList.add(visitor);
+        visitor.setLocation(this);
     }
 
     public void removeVisitor(Visitor visitor) {
@@ -59,17 +63,11 @@ public abstract class ParkLocation {
 
     public void addStaff(Staff staff) {
         staffList.add(staff);
+        staff.setLocation(this);
     }
 
     public void removeStaff(Staff staff) {
         staffList.remove(staff);
-    }
-
-    public void sustainDamage(int damage) {
-        this.structuralIntegrity -= damage;
-        if (getStructuralIntegrity() < 0) {
-            setStructuralIntegrity(0);
-        }
     }
 
     public String introduceDinosaur(Dinosaur dino) {
@@ -80,6 +78,20 @@ public abstract class ParkLocation {
 
     public void removeDinosaur(Dinosaur dino) {
         dinosaurList.remove(dino);
+    }
+
+
+//    would be nice if the park had funds and would run repairs...
+
+    public void repairDamage() {
+        this.structuralIntegrity += staffList.size() * 10;
+    }
+
+    public void sustainDamage(int damage) {
+        this.structuralIntegrity -= damage;
+        if (getStructuralIntegrity() < 0) {
+            setStructuralIntegrity(0);
+        }
     }
 
     public boolean isCompromised() {

@@ -24,26 +24,26 @@ import static junit.framework.TestCase.assertEquals;
 
 public class TestPaddock {
 
-    Paddock paddock9;
-    Paddock paddock1;
-    Paddock paddock2;
-    Paddock brokenPaddock;
+    private Paddock paddock9;
+    private Paddock paddock1;
+    private Paddock paddock2;
+    private Paddock brokenPaddock;
 
-    Triceratops toppy;
-    TyrannosaurusRex rexy;
-    TyrannosaurusRex spyRex;
-    Velociraptor blue;
-    Diplodocus dippy;
+    private Triceratops toppy;
+    private TyrannosaurusRex rexy;
+    private TyrannosaurusRex spyRex;
+    private Velociraptor blue;
+    private Diplodocus dippy;
 
-    Pterodactyl ptery;
-    Mosasaurus mosa;
+    private Pterodactyl ptery;
+    private Mosasaurus mosa;
 
-    Food food;
+    private Food food;
 
-    Visitor visitor1;
-    Visitor spyVisitor;
-    Staff staff1;
-    Staff spyStaff;
+    private Visitor visitor1;
+    private Visitor spyVisitor;
+    private Staff staff1;
+    private Staff spyStaff;
 
     @Before
     public void before() {
@@ -65,16 +65,20 @@ public class TestPaddock {
         spyVisitor = new Visitor("Lewis");
         spyStaff = new Staff("Dennis");
 
+        paddock9.addVisitor(visitor1);
+        paddock9.addStaff(staff1);
+
         spyRex = Mockito.spy(new TyrannosaurusRex("FakeRex", 10));
         brokenPaddock = new Paddock("Broken paddock", 0);
         brokenPaddock.introduceDinosaur(spyRex);
-        brokenPaddock.addVisitor(visitor1);
-        brokenPaddock.addStaff(staff1);
+        brokenPaddock.addVisitor(spyVisitor);
+        brokenPaddock.addStaff(spyStaff);
     }
 
     @Test
-    public void canCheckVisitors() {
-        assertEquals(0, paddock9.getVisitorList().size());
+    public void canCheckHumans() {
+        assertEquals(1, paddock9.getVisitorList().size());
+        assertEquals(1, paddock9.getStaffList().size());
     }
 
     @Test
@@ -90,7 +94,7 @@ public class TestPaddock {
     }
 
     @Test
-    public void canAdd() {
+    public void canAddDinosaurs() {
         assertEquals(0, paddock2.getDinosaurList().size());
         paddock2.introduceDinosaur(toppy);
         assertEquals(1, paddock2.getDinosaurList().size());
@@ -120,6 +124,16 @@ public class TestPaddock {
         assertEquals(3800, paddock9.getStructuralIntegrity());
     }
 
+    @Test
+    public void canRepairDamage() {
+        for (int i=0; 10 > i; i++) {
+            rexy.eat(food);
+        }
+        rexy.rampage();
+        paddock9.repairDamage();
+        assertEquals(3810, paddock9.getStructuralIntegrity());
+    }
+
 //    Should probably be done in the raptor test.
     @Test
     public void canCheckCompromised() {
@@ -135,5 +149,19 @@ public class TestPaddock {
         assertEquals(0, brokenPaddock.getStaffList().size());
         assertEquals(1, brokenPaddock.getVisitorList().size());
         assertEquals(1, spyRex.getBelly().size());
+        spyRex.rampage();
+        assertEquals(2, spyRex.getBelly().size());
+        assertEquals(0, brokenPaddock.getVisitorList().size());
+    }
+
+    @Test
+    public void humanPerishes() {
+        assertEquals(brokenPaddock, spyStaff.getLocation());
+        assertEquals(brokenPaddock, spyVisitor.getLocation());
+        spyRex.rampage();
+        spyRex.rampage();
+
+        assertEquals(null, spyStaff.getLocation());
+        assertEquals(null, spyVisitor.getLocation());
     }
 }
