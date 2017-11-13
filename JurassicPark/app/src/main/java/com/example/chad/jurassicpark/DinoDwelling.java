@@ -1,5 +1,6 @@
 package com.example.chad.jurassicpark;
 
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
 import com.example.chad.jurassicpark.HumanInterfaces.Ranger;
 
 import java.lang.reflect.Array;
@@ -19,8 +20,8 @@ public abstract class DinoDwelling {
     public DinoDwelling(String name, int structuralIntegrity) {
         this.structuralIntegrity = structuralIntegrity;
         this.name = name;
-        this.visitorList = visitorList;
-        this.rangerList = rangerList;
+        this.visitorList = new ArrayList<>();
+        this.rangerList = new ArrayList<>();
     }
 
     public int getStructuralIntegrity() {

@@ -1,6 +1,6 @@
 package com.example.chad.jurassicpark;
 
-import com.example.chad.jurassicpark.Dinosaurs.Velociraptor;
+import com.example.chad.jurassicpark.DinosaurSpecies.Velociraptor;
 
 import org.junit.Before;
 import org.junit.Test;

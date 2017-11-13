@@ -1,6 +1,7 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.DinosaurSuperClasses;
 
 import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
 
 /**
  * Created by chad on 12/11/2017.

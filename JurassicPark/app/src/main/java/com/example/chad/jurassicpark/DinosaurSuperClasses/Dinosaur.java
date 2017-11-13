@@ -1,6 +1,8 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.DinosaurSuperClasses;
 
+import com.example.chad.jurassicpark.DinoDwelling;
 import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
+import com.example.chad.jurassicpark.Food;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
