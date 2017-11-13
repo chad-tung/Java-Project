@@ -13,46 +13,38 @@ import java.util.ArrayList;
 
 public class Paddock extends DinoDwelling {
 
-    private ArrayList<Dinosaur> dinosaurResidents;
-
     public Paddock(String name, int structuralIntegrity) {
         super(name, structuralIntegrity);
-        this.dinosaurResidents = new ArrayList<>();
 
     }
 
     public Paddock(String name, int structuralIntegrity, Dinosaur dino) {
         super(name, structuralIntegrity);
-        this.dinosaurResidents = new ArrayList<>();
-        this.dinosaurResidents.add(dino);
+        addDinosaur(dino);
         dino.setLocation(this);
     }
 
-
-    public ArrayList<Dinosaur> getDinosaurResidents() {
-        return dinosaurResidents;
-    }
-
 //Could probably be made cleaner.
-    public String addDinosaur(Dinosaur dino) {
+
+    public String introduceDinosaur(Dinosaur dino) {
         String message = dino.getName() + " has been added to " + getName();
         if ((dino instanceof Herbivore) || (dino instanceof Carnivore)) {
-            if (dinosaurResidents.isEmpty()) {
-                dinosaurResidents.add(dino);
+            if (getDinosaurList().isEmpty()) {
+                addDinosaur(dino);
                 dino.setLocation(this);
                 return message;
             }
             if (dino instanceof Herbivore) {
                 if (!hasCarnivore()) {
-                    dinosaurResidents.add(dino);
+                    addDinosaur(dino);
                     dino.setLocation(this);
                     return message;
                 }
             }
             if (dino instanceof Carnivore) {
-                Dinosaur inhabitant = dinosaurResidents.get(0);
+                Dinosaur inhabitant = getDinosaurList().get(0);
                 if (dino.getType() == inhabitant.getType()) {
-                    dinosaurResidents.add(dino);
+                    addDinosaur(dino);
                     dino.setLocation(this);
                     return message;
                 }
@@ -63,7 +55,7 @@ public class Paddock extends DinoDwelling {
 
     public Boolean hasCarnivore() {
         int counter = 0;
-        for (Dinosaur dino: dinosaurResidents) {
+        for (Dinosaur dino: getDinosaurList()) {
             if (dino instanceof Carnivore) {
                 counter++;
             }

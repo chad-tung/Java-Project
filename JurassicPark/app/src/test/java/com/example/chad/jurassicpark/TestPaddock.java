@@ -8,6 +8,7 @@ import com.example.chad.jurassicpark.Locations.Habitats.Paddock;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
@@ -22,9 +23,11 @@ public class TestPaddock {
     Paddock paddock9;
     Paddock paddock1;
     Paddock paddock2;
+    Paddock brokenPaddock;
 
     Triceratops toppy;
     TyrannosaurusRex rexy;
+    TyrannosaurusRex spyRex;
     Velociraptor blue;
     Diplodocus dippy;
 
@@ -47,6 +50,8 @@ public class TestPaddock {
         visitor1 = new Visitor("Chad");
         staff1 = new Staff("John");
 
+        spyRex = Mockito.spy(rexy);
+        brokenPaddock = new Paddock("Broken paddock", 0);
     }
 
     @Test
@@ -68,16 +73,16 @@ public class TestPaddock {
 
     @Test
     public void canAdd() {
-        assertEquals(0, paddock2.getDinosaurResidents().size());
+        assertEquals(0, paddock2.getDinosaurList().size());
         paddock2.addDinosaur(toppy);
-        assertEquals(1, paddock2.getDinosaurResidents().size());
+        assertEquals(1, paddock2.getDinosaurList().size());
     }
 
     @Test
     public void canGetAddMessage() {
-        assertEquals("Toppy has been added to Paddock 2", paddock2.addDinosaur(toppy));
-        assertEquals("Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.", paddock9.addDinosaur(blue));
-        assertEquals(1, paddock9.getDinosaurResidents().size());
+        assertEquals("Toppy has been added to Paddock 2", paddock2.introduceDinosaur(toppy));
+        assertEquals("Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.", paddock9.introduceDinosaur(blue));
+        assertEquals(1, paddock9.getDinosaurList().size());
     }
 
     @Test
@@ -88,6 +93,12 @@ public class TestPaddock {
         assertEquals("Rexy got riled up and started a rampage! Paddock 9 has sustained damage!", rexy.rampage());
         assertEquals(0, rexy.getBelly().size());
         assertEquals(3800, paddock9.getStructuralIntegrity());
+    }
+
+//    Should probably be done in the raptor test.
+    @Test
+    public void canKillHumans() {
+
     }
 
 }

@@ -1,6 +1,8 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.Locations;
 
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
+import com.example.chad.jurassicpark.Staff;
+import com.example.chad.jurassicpark.Visitor;
 
 import java.util.ArrayList;
 
@@ -39,6 +41,14 @@ public abstract class ParkLocation {
         return dinosaurList;
     }
 
+    public int getStructuralIntegrity() {
+        return structuralIntegrity;
+    }
+
+    public void setStructuralIntegrity(int structuralIntegrity) {
+        this.structuralIntegrity = structuralIntegrity;
+    }
+
     public void addVisitor(Visitor visitor) {
         visitorList.add(visitor);
     }
@@ -53,5 +63,16 @@ public abstract class ParkLocation {
 
     public void removeStaff(Staff staff) {
         staffList.remove(staff);
+    }
+
+    public void sustainDamage(int damage) {
+        this.structuralIntegrity -= damage;
+        if (getStructuralIntegrity() < 0) {
+            setStructuralIntegrity(0);
+        }
+    }
+
+    public void addDinosaur(Dinosaur dino) {
+        dinosaurList.add(dino);
     }
 }

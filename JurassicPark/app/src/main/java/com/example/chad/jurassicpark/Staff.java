@@ -1,24 +1,17 @@
 package com.example.chad.jurassicpark;
 
+import com.example.chad.jurassicpark.Locations.ParkLocation;
+
 /**
  * Created by chad on 10/11/2017.
  */
 
-public class Staff {
+public class Staff extends Human{
 
-    private String name;
-    private ParkLocation location;
+    String name;
 
     public Staff(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public ParkLocation getLocation() {
-        return location;
+        super(name);
     }
 
     public void changeLocation(ParkLocation newLocation) {

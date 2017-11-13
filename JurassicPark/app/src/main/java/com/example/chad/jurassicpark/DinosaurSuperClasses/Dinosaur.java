@@ -16,7 +16,7 @@ public abstract class Dinosaur {
     private Enum type;
     private int strength;
     private ArrayList<Food> belly;
-    private DinoDwelling location;
+    protected DinoDwelling location;
 
 
     public Dinosaur(String name, Species type, int age) {
@@ -75,7 +75,6 @@ public abstract class Dinosaur {
             this.location.sustainDamage(causeDamage());
             return name + " got riled up and started a rampage! " + location.getName() + " has sustained damage!";
         }
-
     }
 
 
