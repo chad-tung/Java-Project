@@ -28,6 +28,8 @@ public class TestPaddock {
     Velociraptor blue;
     Diplodocus dippy;
 
+    Food food;
+
     @Before
     public void before() {
         toppy = new Triceratops("Toppy", 4);
@@ -37,6 +39,12 @@ public class TestPaddock {
         paddock9 = new Paddock("Paddock 9", 5000, rexy);
         paddock1 = new Paddock("Paddock 1", 5000, dippy);
         paddock2 = new Paddock("Paddock 2", 5000);
+        food = new Food();
+    }
+
+    @Test
+    public void canCheckVisitors() {
+        assertEquals(0, paddock9.getVisitorList().size());
     }
 
     @Test
@@ -61,8 +69,18 @@ public class TestPaddock {
     @Test
     public void canGetAddMessage() {
         assertEquals("Toppy has been added to Paddock 2", paddock2.addDinosaur(toppy));
-        assertEquals("Sorry, you cannot add this dinosaur to that paddock. You will upset the balance, and Ian Malcolm won't be pleased.", paddock9.addDinosaur(blue));
+        assertEquals("Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.", paddock9.addDinosaur(blue));
         assertEquals(1, paddock9.getDinosaurResidents().size());
+    }
+
+    @Test
+    public void canSustainDamage() {
+        for (int i=0; 10 > i; i++) {
+            rexy.eat(food);
+        }
+        assertEquals("Rexy got riled up and started a rampage! Paddock 9 has sustained damage!", rexy.rampage());
+        assertEquals(0, rexy.getBelly().size());
+        assertEquals(3800, paddock9.getStructuralIntegrity());
     }
 
 }

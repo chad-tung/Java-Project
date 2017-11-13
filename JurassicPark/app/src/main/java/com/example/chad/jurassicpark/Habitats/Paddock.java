@@ -60,7 +60,7 @@ public class Paddock extends DinoDwelling {
                 }
             }
         }
-        return "Sorry, you cannot add this dinosaur to that paddock. You will upset the balance, and Ian Malcolm won't be pleased.";
+        return "Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.";
 
     }
 

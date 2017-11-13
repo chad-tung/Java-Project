@@ -1,9 +1,5 @@
 package com.example.chad.jurassicpark;
 
-import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
-import com.example.chad.jurassicpark.HumanInterfaces.Ranger;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -11,32 +7,24 @@ import java.util.ArrayList;
  */
 
 
-public abstract class DinoDwelling {
+public abstract class DinoDwelling extends ParkLocation {
     private String name;
     private int structuralIntegrity;
-    private ArrayList<VisitorGroup> visitorList;
-    private ArrayList<Ranger> rangerList;
+    private ArrayList<Visitor> visitorList;
+    private ArrayList<Staff> staffList;
 
     public DinoDwelling(String name, int structuralIntegrity) {
         this.structuralIntegrity = structuralIntegrity;
         this.name = name;
         this.visitorList = new ArrayList<>();
-        this.rangerList = new ArrayList<>();
+        this.staffList = new ArrayList<>();
     }
 
     public int getStructuralIntegrity() {
         return structuralIntegrity;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public ArrayList<VisitorGroup> getVisitorList() {
-        return visitorList;
-    }
-
-    public ArrayList<Ranger> getRangerList() {
-        return rangerList;
+    public void sustainDamage(int damage) {
+        this.structuralIntegrity -= damage;
     }
 }

@@ -5,4 +5,12 @@ package com.example.chad.jurassicpark;
  */
 
 public class Staff {
+
+    String name;
+    ParkLocation location;
+
+    public Staff(String name, ParkLocation location) {
+        this.name = name;
+        this.location = location;
+    }
 }

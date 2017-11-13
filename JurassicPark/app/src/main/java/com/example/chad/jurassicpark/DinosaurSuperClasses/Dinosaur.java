@@ -69,4 +69,16 @@ public abstract class Dinosaur {
         }
     }
 
+    public String rampage() {
+        if (belly.isEmpty()) {
+            return name + " tried to rampage, but had no energy and slept instead.";
+        } else {
+            this.location.sustainDamage(causeDamage());
+            return name + " got riled up and started a rampage! " + location.getName() + " has sustained damage!";
+        }
+
+    }
+
+
+
 }

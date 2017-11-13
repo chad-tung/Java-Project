@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 
 public class JurassicPark {
-    ArrayList<VisitorGroup> visitors;
+    ArrayList<Visitor> visitors;
     ArrayList<Staff> staff;
     ArrayList<Food> stock;
     ArrayList<DinoDwelling> zones;
