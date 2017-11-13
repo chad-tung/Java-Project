@@ -1,6 +1,11 @@
 package com.example.chad.jurassicpark;
 
+import android.location.Location;
+
 import com.example.chad.jurassicpark.Locations.DinoDwelling;
+import com.example.chad.jurassicpark.Locations.ParkLocation;
+import com.example.chad.jurassicpark.People.Staff;
+import com.example.chad.jurassicpark.People.Visitor;
 
 import java.util.ArrayList;
 
@@ -12,6 +17,6 @@ public class JurassicPark {
     private ArrayList<Visitor> visitors;
     private ArrayList<Staff> staff;
     private ArrayList<Food> stock;
-    private ArrayList<DinoDwelling> zones;
+    private ArrayList<ParkLocation> zones;
     //Probably need a shop arraylist
 }

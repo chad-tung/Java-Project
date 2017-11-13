@@ -1,6 +1,7 @@
 package com.example.chad.jurassicpark;
 
 import com.example.chad.jurassicpark.Locations.Habitats.Paddock;
+import com.example.chad.jurassicpark.People.Visitor;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -43,5 +44,12 @@ public class TestVisitor {
         assertEquals(paddock2, visitor1.getLocation());
         assertEquals(0, paddock1.getVisitorList().size());
         assertEquals(1, paddock2.getVisitorList().size());
+    }
+
+    @Test
+    public void canLeave() {
+        visitor1.changeLocation(paddock1);
+        visitor1.exitPark();
+        assertNull(visitor1.getLocation());
     }
 }

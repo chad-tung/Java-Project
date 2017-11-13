@@ -1,10 +1,9 @@
 package com.example.chad.jurassicpark.DinosaurSuperClasses;
 
 import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
-import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
-import com.example.chad.jurassicpark.Human;
-import com.example.chad.jurassicpark.Staff;
-import com.example.chad.jurassicpark.Visitor;
+import com.example.chad.jurassicpark.Food;
+import com.example.chad.jurassicpark.People.Staff;
+import com.example.chad.jurassicpark.People.Visitor;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -39,7 +38,7 @@ public class Carnivore extends Dinosaur {
         humans.remove(random);
     }
 
-    public void huntHumans() {
+    public String huntHumans() {
         ArrayList<Staff> staff = location.getStaffList();
         ArrayList<Visitor> visitors = location.getVisitorList();
         if (randomHumanGroup() == 1) {
@@ -56,18 +55,17 @@ public class Carnivore extends Dinosaur {
                 randomVisitorVictim(visitors);
             }
         }
+        return location.getName() + "'s structural integrity is compromised, " + getName() + " has killed a human!";
     }
 
+    @Override
     public String rampage() {
-        if (location.getStructuralIntegrity() == 0) {
-            huntHumans();
-            return location.getName() + "'s structural integrity is compromised, " + getName() + " has killed a human!";
-        }
-        if (getBelly().isEmpty()) {
-            return getName() + " tried to rampage, but had no energy and slept instead.";
+        if (location.isCompromised()) {
+            Food food = new Food();
+            eat(food);
+            return huntHumans();
         } else {
-            this.location.sustainDamage(causeDamage());
-            return getName() + " got riled up and started a rampage! " + location.getName() + " has sustained damage!";
+            return super.rampage();
         }
     }
 }

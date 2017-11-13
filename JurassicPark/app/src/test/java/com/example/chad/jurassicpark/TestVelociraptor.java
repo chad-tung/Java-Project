@@ -55,4 +55,9 @@ public class TestVelociraptor {
         assertEquals(0, blue.getBelly().size());
     }
 
+    @Test
+    public void canKill() {
+
+    }
+
 }

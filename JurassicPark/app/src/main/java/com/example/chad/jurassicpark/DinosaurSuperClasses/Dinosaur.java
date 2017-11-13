@@ -1,8 +1,11 @@
 package com.example.chad.jurassicpark.DinosaurSuperClasses;
 
+import android.location.Location;
+
 import com.example.chad.jurassicpark.Locations.DinoDwelling;
 import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
 import com.example.chad.jurassicpark.Food;
+import com.example.chad.jurassicpark.Locations.ParkLocation;
 
 import java.util.ArrayList;
 
@@ -16,7 +19,7 @@ public abstract class Dinosaur {
     private Enum type;
     private int strength;
     private ArrayList<Food> belly;
-    protected DinoDwelling location;
+    protected ParkLocation location;
 
 
     public Dinosaur(String name, Species type, int age) {
@@ -32,11 +35,11 @@ public abstract class Dinosaur {
         return name;
     }
 
-    public DinoDwelling getLocation() {
+    public ParkLocation getLocation() {
         return location;
     }
 
-    public void setLocation(DinoDwelling place) {
+    public void setLocation(ParkLocation place) {
         this.location = place;
     }
 
@@ -69,7 +72,7 @@ public abstract class Dinosaur {
     }
 
     public String rampage() {
-        if (belly.isEmpty()) {
+        if (belly.isEmpty() && !(location.isCompromised())) {
             return name + " tried to rampage, but had no energy and slept instead.";
         } else {
             this.location.sustainDamage(causeDamage());

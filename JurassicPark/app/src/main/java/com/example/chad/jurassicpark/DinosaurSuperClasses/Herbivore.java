@@ -18,6 +18,7 @@ public class Herbivore extends Dinosaur {
 //    Maybe the dinosaur tracker could be a class in itself, rather than the dinosaurs keeping track of their own locations.
     public String transfer(Paddock habitat) {
         if (!habitat.hasCarnivore()){
+            location.removeDinosaur(this);
             this.setLocation(habitat);
             return getName() + " has been moved to " + habitat.getName() + ".";
         } else {

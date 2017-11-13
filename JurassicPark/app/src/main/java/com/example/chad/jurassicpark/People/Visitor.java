@@ -1,4 +1,4 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.People;
 
 import com.example.chad.jurassicpark.Locations.ParkLocation;
 
@@ -6,7 +6,7 @@ import com.example.chad.jurassicpark.Locations.ParkLocation;
  * Created by chad on 10/11/2017.
  */
 
-public class Visitor extends Human{
+public class Visitor extends Human {
 
     private String name;
 
@@ -22,6 +22,8 @@ public class Visitor extends Human{
         newLocation.addVisitor(this);
     }
 
-
+    public void exitPark() {
+        this.location = null;
+    }
 
 }

@@ -20,23 +20,25 @@ public class Paddock extends DinoDwelling {
 
     public Paddock(String name, int structuralIntegrity, Dinosaur dino) {
         super(name, structuralIntegrity);
-        addDinosaur(dino);
-        dino.setLocation(this);
+        if (dino instanceof Herbivore || dino instanceof Carnivore) {
+            introduceDinosaur(dino);
+        }
     }
 
 //Could probably be made cleaner.
 
+    @Override
     public String introduceDinosaur(Dinosaur dino) {
         String message = dino.getName() + " has been added to " + getName();
         if ((dino instanceof Herbivore) || (dino instanceof Carnivore)) {
             if (getDinosaurList().isEmpty()) {
-                addDinosaur(dino);
+                super.introduceDinosaur(dino);
                 dino.setLocation(this);
                 return message;
             }
             if (dino instanceof Herbivore) {
                 if (!hasCarnivore()) {
-                    addDinosaur(dino);
+                    super.introduceDinosaur(dino);
                     dino.setLocation(this);
                     return message;
                 }
@@ -44,7 +46,7 @@ public class Paddock extends DinoDwelling {
             if (dino instanceof Carnivore) {
                 Dinosaur inhabitant = getDinosaurList().get(0);
                 if (dino.getType() == inhabitant.getType()) {
-                    addDinosaur(dino);
+                    super.introduceDinosaur(dino);
                     dino.setLocation(this);
                     return message;
                 }

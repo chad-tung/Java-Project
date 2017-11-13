@@ -1,5 +1,7 @@
 package com.example.chad.jurassicpark.Locations.Habitats;
 
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Aerial;
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
 import com.example.chad.jurassicpark.Locations.DinoDwelling;
 
 /**
@@ -9,5 +11,16 @@ import com.example.chad.jurassicpark.Locations.DinoDwelling;
 public class Aviary extends DinoDwelling {
     public Aviary(String name, Integer structuralIntegrity) {
         super(name, structuralIntegrity);
+    }
+
+    public String introduceDinosaur(Dinosaur dino) {
+        String message = dino.getName() + " has been added to " + getName();
+        if (dino instanceof Aerial) {
+            super.introduceDinosaur(dino);
+            return message;
+        }
+        else {
+            return dino.getName() + " is not compatible in this ecosystem.";
+        }
     }
 }

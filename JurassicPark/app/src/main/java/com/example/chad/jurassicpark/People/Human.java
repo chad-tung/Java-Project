@@ -1,4 +1,4 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.People;
 
 import com.example.chad.jurassicpark.Locations.ParkLocation;
 

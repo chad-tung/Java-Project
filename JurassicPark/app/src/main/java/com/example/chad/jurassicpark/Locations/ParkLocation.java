@@ -1,8 +1,8 @@
 package com.example.chad.jurassicpark.Locations;
 
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
-import com.example.chad.jurassicpark.Staff;
-import com.example.chad.jurassicpark.Visitor;
+import com.example.chad.jurassicpark.People.Staff;
+import com.example.chad.jurassicpark.People.Visitor;
 
 import java.util.ArrayList;
 
@@ -72,7 +72,17 @@ public abstract class ParkLocation {
         }
     }
 
-    public void addDinosaur(Dinosaur dino) {
+    public String introduceDinosaur(Dinosaur dino) {
         dinosaurList.add(dino);
+        dino.setLocation(this);
+        return "Dino has been added";
+    }
+
+    public void removeDinosaur(Dinosaur dino) {
+        dinosaurList.remove(dino);
+    }
+
+    public boolean isCompromised() {
+        return structuralIntegrity <= 0;
     }
 }

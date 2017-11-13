@@ -1,6 +1,7 @@
 package com.example.chad.jurassicpark.Locations.Habitats;
 
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Aerial;
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Aquatic;
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
 import com.example.chad.jurassicpark.Locations.DinoDwelling;
 
@@ -17,8 +18,8 @@ public class Lagoon extends DinoDwelling {
 
     public String introduceDinosaur(Dinosaur dino) {
         String message = dino.getName() + " has been added to " + getName();
-        if (dino instanceof Aerial) {
-            addDinosaur(dino);
+        if (dino instanceof Aquatic) {
+            super.introduceDinosaur(dino);
             return message;
         }
         else {
