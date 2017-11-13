@@ -1,10 +1,10 @@
 package com.example.chad.jurassicpark;
 
-import com.example.chad.jurassicpark.DinosaurSpecies.Diplodocus;
-import com.example.chad.jurassicpark.DinosaurSpecies.Triceratops;
-import com.example.chad.jurassicpark.DinosaurSpecies.TyrannosaurusRex;
-import com.example.chad.jurassicpark.DinosaurSpecies.Velociraptor;
-import com.example.chad.jurassicpark.Habitats.Paddock;
+import com.example.chad.jurassicpark.DinosaurSpecies.Herbivores.Diplodocus;
+import com.example.chad.jurassicpark.DinosaurSpecies.Herbivores.Triceratops;
+import com.example.chad.jurassicpark.DinosaurSpecies.Carnivores.TyrannosaurusRex;
+import com.example.chad.jurassicpark.DinosaurSpecies.Carnivores.Velociraptor;
+import com.example.chad.jurassicpark.Locations.Habitats.Paddock;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +30,9 @@ public class TestPaddock {
 
     Food food;
 
+    Visitor visitor1;
+    Staff staff1;
+
     @Before
     public void before() {
         toppy = new Triceratops("Toppy", 4);
@@ -40,6 +43,10 @@ public class TestPaddock {
         paddock1 = new Paddock("Paddock 1", 5000, dippy);
         paddock2 = new Paddock("Paddock 2", 5000);
         food = new Food();
+
+        visitor1 = new Visitor("Chad");
+        staff1 = new Staff("John");
+
     }
 
     @Test

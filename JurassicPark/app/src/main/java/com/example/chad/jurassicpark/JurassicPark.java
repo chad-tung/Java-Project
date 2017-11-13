@@ -1,5 +1,7 @@
 package com.example.chad.jurassicpark;
 
+import com.example.chad.jurassicpark.Locations.DinoDwelling;
+
 import java.util.ArrayList;
 
 /**
@@ -7,9 +9,9 @@ import java.util.ArrayList;
  */
 
 public class JurassicPark {
-    ArrayList<Visitor> visitors;
-    ArrayList<Staff> staff;
-    ArrayList<Food> stock;
-    ArrayList<DinoDwelling> zones;
+    private ArrayList<Visitor> visitors;
+    private ArrayList<Staff> staff;
+    private ArrayList<Food> stock;
+    private ArrayList<DinoDwelling> zones;
     //Probably need a shop arraylist
 }

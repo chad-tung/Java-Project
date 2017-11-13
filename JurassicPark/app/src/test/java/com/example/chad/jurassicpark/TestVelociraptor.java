@@ -1,6 +1,6 @@
 package com.example.chad.jurassicpark;
 
-import com.example.chad.jurassicpark.DinosaurSpecies.Velociraptor;
+import com.example.chad.jurassicpark.DinosaurSpecies.Carnivores.Velociraptor;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +20,9 @@ public class TestVelociraptor {
     public void before() {
         blue = new Velociraptor("Blue", 4);
         pig = new Food();
-        blue.eat(pig);
-        blue.eat(pig);
+        for (int i=0; i < 4; i++) {
+            blue.eat(pig);
+        }
     }
 
     @Test
@@ -41,16 +42,16 @@ public class TestVelociraptor {
 
     @Test
     public void canEat() {
-        assertEquals(2, blue.getBelly().size());
+        assertEquals(4, blue.getBelly().size());
         assertEquals("Blue ate the food.", blue.eat(pig));
-        assertEquals(3, blue.getBelly().size());
+        assertEquals(5, blue.getBelly().size());
         assertEquals("Blue is not hungry...", blue.eat(pig));
-        assertEquals(3, blue.getBelly().size());
+        assertEquals(5, blue.getBelly().size());
     }
 
     @Test
     public void canCauseDamage() {
-        assertEquals(60, blue.causeDamage());
+        assertEquals(200, blue.causeDamage());
         assertEquals(0, blue.getBelly().size());
     }
 

@@ -8,37 +8,30 @@ import java.util.HashMap;
 
 public class Visitor {
 
-    String name;
-    int age;
-    HashMap<String, Integer> wallet;
-    ParkLocation location;
+    private String name;
+    private ParkLocation location;
 
-    public Visitor(String name, int age, int card, int cash) {
+    public Visitor(String name) {
         this.name = name;
-        this.age = age;
-        this.wallet = new HashMap<>();
-        this.wallet.put("card", card);
-        this.wallet.put("cash", cash);
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public HashMap<String, Integer> getWallet() {
-        return wallet;
-    }
-
     public ParkLocation getLocation() {
         return location;
     }
 
-    public void setLocation(ParkLocation location) {
-        this.location = location;
-        location.
+
+    public void changeLocation(ParkLocation newLocation) {
+        if (this.location != null) {
+            this.location.removeVisitor(this);
+        }
+        this.location = newLocation;
+        newLocation.addVisitor(this);
     }
+
+
+
 }

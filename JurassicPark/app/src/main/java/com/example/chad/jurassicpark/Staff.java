@@ -6,11 +6,27 @@ package com.example.chad.jurassicpark;
 
 public class Staff {
 
-    String name;
-    ParkLocation location;
+    private String name;
+    private ParkLocation location;
 
-    public Staff(String name, ParkLocation location) {
+    public Staff(String name) {
         this.name = name;
-        this.location = location;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public ParkLocation getLocation() {
+        return location;
+    }
+
+    public void changeLocation(ParkLocation newLocation) {
+        if (this.location != null) {
+            this.location.removeStaff(this);
+        }
+        this.location = newLocation;
+        newLocation.addStaff(this);
+    }
+
 }

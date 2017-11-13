@@ -1,6 +1,6 @@
-package com.example.chad.jurassicpark.Habitats;
+package com.example.chad.jurassicpark.Locations.Habitats;
 
-import com.example.chad.jurassicpark.DinoDwelling;
+import com.example.chad.jurassicpark.Locations.DinoDwelling;
 
 /**
  * Created by chad on 10/11/2017.

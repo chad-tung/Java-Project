@@ -5,7 +5,7 @@ package com.example.chad.jurassicpark.DinosaurInterfacesEnums;
  */
 
 public enum Species {
-    VELOCIRAPTOR(30),
+    VELOCIRAPTOR(50),
     TYRANOSAURUS_REX(120),
     SPINOSAURUS(80),
     INDOMINOUS_REX(140),
@@ -14,7 +14,7 @@ public enum Species {
     STEGOSAURUS(70),
     DIPLODOCUS(50),
     TRICERATOPS(70),
-    PACHYSAURUS(30),
+    PARASAUROLOPHUS(40),
     ANKYLOSAURUS(50),
 
     MOSASAURUS(200),

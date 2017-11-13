@@ -1,4 +1,4 @@
-package com.example.chad.jurassicpark.DinosaurSpecies;
+package com.example.chad.jurassicpark.DinosaurSpecies.Carnivores;
 
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Carnivore;
 import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;

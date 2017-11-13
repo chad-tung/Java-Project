@@ -1,9 +1,7 @@
-package com.example.chad.jurassicpark.Habitats;
+package com.example.chad.jurassicpark.Locations.Habitats;
 
-import com.example.chad.jurassicpark.DinosaurSuperClasses.Aerial;
-import com.example.chad.jurassicpark.DinosaurSuperClasses.Aquatic;
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Carnivore;
-import com.example.chad.jurassicpark.DinoDwelling;
+import com.example.chad.jurassicpark.Locations.DinoDwelling;
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Herbivore;
 
@@ -61,7 +59,6 @@ public class Paddock extends DinoDwelling {
             }
         }
         return "Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.";
-
     }
 
     public Boolean hasCarnivore() {

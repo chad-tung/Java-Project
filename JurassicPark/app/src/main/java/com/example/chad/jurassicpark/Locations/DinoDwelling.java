@@ -1,4 +1,6 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.Locations;
+
+import com.example.chad.jurassicpark.ParkLocation;
 
 import java.util.ArrayList;
 
@@ -10,14 +12,11 @@ import java.util.ArrayList;
 public abstract class DinoDwelling extends ParkLocation {
     private String name;
     private int structuralIntegrity;
-    private ArrayList<Visitor> visitorList;
-    private ArrayList<Staff> staffList;
+
 
     public DinoDwelling(String name, int structuralIntegrity) {
+        super(name);
         this.structuralIntegrity = structuralIntegrity;
-        this.name = name;
-        this.visitorList = new ArrayList<>();
-        this.staffList = new ArrayList<>();
     }
 
     public int getStructuralIntegrity() {
