@@ -58,5 +58,12 @@ public class TestVisitor {
         assertNull(visitor1.getLocation());
     }
 
+    @Test
+    public void canPerish() {
+        visitor1.changeLocation(paddock1);
+        assertEquals("Oh dear, better get our lawyers!", visitor1.perish());
+        assertEquals(null, visitor1.getLocation());
+    }
+
 
 }

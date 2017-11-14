@@ -22,4 +22,10 @@ public class Staff extends Human {
         newLocation.addStaff(this);
     }
 
+    @Override
+    public String perish() {
+        location.removeStaff(this);
+        return super.perish();
+    }
+
 }

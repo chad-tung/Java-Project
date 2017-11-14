@@ -20,7 +20,7 @@ public class Herbivore extends Dinosaur {
     public String transfer(Paddock habitat) {
         if (!habitat.hasCarnivore()){
             location.removeDinosaur(this);
-            this.setLocation(habitat);
+            habitat.introduceDinosaur(this);
             return getName() + " has been moved to " + habitat.getName() + ".";
         } else {
             return "Carnivore present, moving " + getName() + " there would be heartless!";

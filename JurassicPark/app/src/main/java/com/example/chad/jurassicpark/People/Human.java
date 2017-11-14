@@ -27,8 +27,9 @@ public class Human {
         this.location = location;
     }
 
-    public void perish() {
+    public String perish() {
         location = null;
+        return "Oh dear, better get our lawyers!";
     }
 
 }

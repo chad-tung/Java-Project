@@ -1,4 +1,4 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.LocationTests;
 
 /**
  * Created by chad on 14/11/2017.

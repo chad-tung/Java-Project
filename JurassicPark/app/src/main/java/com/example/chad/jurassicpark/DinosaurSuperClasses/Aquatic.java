@@ -14,11 +14,16 @@ public class Aquatic extends Dinosaur {
     @Override
     public String rampage() {
         if (location.isCompromised()) {
-            setLocation(null);
+            escape();
             return getName() + " the " + getType() + " escaped " + location.getName() + "!";
         }
         else {
             return super.rampage();
         }
+    }
+
+    public void escape() {
+        location.removeDinosaur(this);
+        setLocation(null);
     }
 }

@@ -30,13 +30,13 @@ public class TestMosasaurus {
 
     @Test
     public void cannotEnterPaddock() {
-        assertEquals("Mosa is not compatible in this ecosystem.", paddock.introduceDinosaur(mosasaurus));
+        assertEquals("Mosa is not compatible with this ecosystem.", paddock.introduceDinosaur(mosasaurus));
         assertEquals(0, paddock.getDinosaurList().size());
     }
 
     @Test
     public void cannotEnterAviary() {
-        assertEquals("Mosa is not compatible in this ecosystem.", aviary.introduceDinosaur(mosasaurus));
+        assertEquals("Mosa is not compatible with this ecosystem.", aviary.introduceDinosaur(mosasaurus));
         assertEquals(0, aviary.getDinosaurList().size());
     }
 

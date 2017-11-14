@@ -1,4 +1,4 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.LocationTests;
 
 import com.example.chad.jurassicpark.DinosaurSpecies.Aerials.Pterodactyl;
 import com.example.chad.jurassicpark.DinosaurSpecies.Aquatics.Mosasaurus;
@@ -6,6 +6,7 @@ import com.example.chad.jurassicpark.DinosaurSpecies.Herbivores.Diplodocus;
 import com.example.chad.jurassicpark.DinosaurSpecies.Herbivores.Triceratops;
 import com.example.chad.jurassicpark.DinosaurSpecies.Carnivores.TyrannosaurusRex;
 import com.example.chad.jurassicpark.DinosaurSpecies.Carnivores.Velociraptor;
+import com.example.chad.jurassicpark.Food;
 import com.example.chad.jurassicpark.Locations.Habitats.Paddock;
 import com.example.chad.jurassicpark.People.Staff;
 import com.example.chad.jurassicpark.People.Visitor;
@@ -101,10 +102,17 @@ public class TestPaddock {
     }
 
     @Test
-    public void canRejectWrongDinosaurs() {
-        assertEquals("Ptery is not compatible in this ecosystem.", paddock2.introduceDinosaur(ptery));
-        assertEquals("Mosa is not compatible in this ecosystem.", paddock2.introduceDinosaur(mosa));
+    public void canRejectAerial() {
+        assertEquals("Ptery is not compatible with this ecosystem.", paddock2.introduceDinosaur(ptery));
+        assertEquals(0, paddock2.getDinosaurList().size());
+        assertEquals(null, ptery.getLocation());
+    }
 
+    @Test
+    public void canRejectAquatic() {
+        assertEquals("Mosa is not compatible with this ecosystem.", paddock2.introduceDinosaur(mosa));
+        assertEquals(0, paddock2.getDinosaurList().size());
+        assertEquals(null, mosa.getLocation());
     }
 
     @Test

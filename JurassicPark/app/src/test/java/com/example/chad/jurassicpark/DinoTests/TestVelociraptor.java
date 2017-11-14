@@ -52,6 +52,11 @@ public class TestVelociraptor {
         assertEquals(4, blue.getBelly().size());
         assertEquals("Blue ate the food.", blue.eat(pig));
         assertEquals(5, blue.getBelly().size());
+    }
+
+    @Test
+    public void canOnlyEat5() {
+        blue.eat(pig);
         assertEquals("Blue is not hungry...", blue.eat(pig));
         assertEquals(5, blue.getBelly().size());
     }
@@ -64,12 +69,14 @@ public class TestVelociraptor {
 
     @Test
     public void cannotEnterAviary() {
-        assertEquals("Blue is not compatible in this ecosystem.", aviary.introduceDinosaur(blue));
+        assertEquals("Blue is not compatible with this ecosystem.", aviary.introduceDinosaur(blue));
+        assertEquals(0, aviary.getDinosaurList().size());
     }
 
     @Test
     public void cannotEnterLagoon() {
-        assertEquals("Blue is not compatible in this ecosystem.", lagoon.introduceDinosaur(blue));
+        assertEquals("Blue is not compatible with this ecosystem.", lagoon.introduceDinosaur(blue));
+        assertEquals(0, lagoon.getDinosaurList().size());
     }
 
 }

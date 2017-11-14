@@ -36,7 +36,7 @@ public class Carnivore extends Dinosaur {
         Random rand = new Random();
         int arraySize = humans.size();
         int random = rand.nextInt(arraySize);
-        Visitor victim = humans.remove(random);
+        Visitor victim = humans.get(random);
         victim.perish();
     }
 

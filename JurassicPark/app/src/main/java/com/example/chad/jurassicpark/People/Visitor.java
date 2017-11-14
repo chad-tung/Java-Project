@@ -26,4 +26,10 @@ public class Visitor extends Human {
         this.location = null;
     }
 
+    @Override
+    public String perish() {
+        location.removeVisitor(this);
+        return super.perish();
+    }
+
 }

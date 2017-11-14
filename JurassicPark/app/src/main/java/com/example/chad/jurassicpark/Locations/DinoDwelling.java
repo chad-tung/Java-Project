@@ -19,7 +19,7 @@ public abstract class DinoDwelling extends ParkLocation {
     }
 
     public String rejectDinosaur(Dinosaur dino) {
-        return dino.getName() + " is not compatible in this ecosystem.";
+        return dino.getName() + " is not compatible with this ecosystem.";
     }
 
 }
