@@ -2,7 +2,9 @@ package com.example.chad.jurassicpark.Locations.Habitats;
 
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Aerial;
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Aquatic;
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Carnivore;
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Herbivore;
 import com.example.chad.jurassicpark.Locations.DinoDwelling;
 
 /**
@@ -13,6 +15,13 @@ public class Lagoon extends DinoDwelling {
 
     public Lagoon(String name, Integer structuralIntegrity) {
         super(name, structuralIntegrity);
+    }
+
+    public Lagoon(String name, int structuralIntegrity, Dinosaur dino) {
+        super(name, structuralIntegrity);
+        if (dino instanceof Aquatic) {
+            introduceDinosaur(dino);
+        }
     }
 
 

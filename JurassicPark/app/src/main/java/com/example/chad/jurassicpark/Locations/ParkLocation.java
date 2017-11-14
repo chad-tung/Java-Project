@@ -71,6 +71,9 @@ public abstract class ParkLocation {
     }
 
     public String introduceDinosaur(Dinosaur dino) {
+        if (dino.getLocation() != null) {
+            dino.getLocation().removeDinosaur(dino);
+        }
         dinosaurList.add(dino);
         dino.setLocation(this);
         return "Dino has been added";
@@ -96,5 +99,12 @@ public abstract class ParkLocation {
 
     public boolean isCompromised() {
         return structuralIntegrity <= 0;
+    }
+
+    public void clearDinosaurs() {
+        for (Dinosaur dino: getDinosaurList()) {
+            dino.setLocation(null);
+        }
+        this.getDinosaurList().clear();
     }
 }

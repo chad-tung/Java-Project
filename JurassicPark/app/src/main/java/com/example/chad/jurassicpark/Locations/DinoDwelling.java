@@ -22,4 +22,6 @@ public abstract class DinoDwelling extends ParkLocation {
         return dino.getName() + " is not compatible with this ecosystem.";
     }
 
+
+
 }

@@ -7,7 +7,7 @@ package com.example.chad.jurassicpark.Locations;
 public class SafetyBunker extends ParkLocation {
 
     public SafetyBunker() {
-        super("safety bunker");
+        super("Safety Bunker");
         setStructuralIntegrity(10000);
     }
 }

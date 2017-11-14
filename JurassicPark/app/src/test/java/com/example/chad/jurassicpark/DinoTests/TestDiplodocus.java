@@ -68,6 +68,17 @@ public class TestDiplodocus {
 
     @Test
     public void canTransfer() {
+        paddock.introduceDinosaur(dippy);
+        assertEquals("Dippy has been moved to Dippy's new Dwelling.", dippy.transfer(paddock2));
+        assertEquals(0, paddock.getDinosaurList().size());
+        assertEquals(1, paddock2.getDinosaurList().size());
+    }
 
+    @Test
+    public void canRejectTransfer() {
+        paddock.introduceDinosaur(dippy);
+        assertEquals("Carnivore present, moving Dippy there would be heartless!", dippy.transfer(paddock9));
+        assertEquals(dippy, paddock.getDinosaurList().get(0));
+        assertEquals(1, paddock9.getDinosaurList().size());
     }
 }

@@ -77,6 +77,9 @@ public abstract class Dinosaur {
         }
     }
 
-
+    public void escape() {
+        location.removeDinosaur(this);
+        setLocation(null);
+    }
 
 }

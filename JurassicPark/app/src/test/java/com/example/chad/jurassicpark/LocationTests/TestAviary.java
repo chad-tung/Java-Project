@@ -64,4 +64,15 @@ public class TestAviary {
         assertEquals(1, aviary.getDinosaurList().size());
         assertEquals(aviary, ptery.getLocation());
     }
+
+    @Test
+    public void dinosaursCanEscape() {
+        brokenAviary.introduceDinosaur(ptery);
+        brokenAviary.introduceDinosaur(quetzy);
+        assertEquals(2, brokenAviary.getDinosaurList().size());
+        assertEquals("Broken Aviary's structural integrity has been compromised, all the dinosaurs have escaped!", quetzy.rampage());
+        assertEquals(0, brokenAviary.getDinosaurList().size());
+        assertEquals(null, quetzy.getLocation());
+        assertEquals(null, ptery.getLocation());
+    }
 }

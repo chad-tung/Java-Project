@@ -13,17 +13,13 @@ public class Aquatic extends Dinosaur {
 
     @Override
     public String rampage() {
+        String escapeMessage = getName() + " the " + getType() + " escaped " + location.getName() + "!";
         if (location.isCompromised()) {
             escape();
-            return getName() + " the " + getType() + " escaped " + location.getName() + "!";
+            return escapeMessage;
         }
         else {
             return super.rampage();
         }
-    }
-
-    public void escape() {
-        location.removeDinosaur(this);
-        setLocation(null);
     }
 }
