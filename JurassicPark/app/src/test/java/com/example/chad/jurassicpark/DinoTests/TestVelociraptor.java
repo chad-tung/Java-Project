@@ -1,6 +1,9 @@
-package com.example.chad.jurassicpark;
+package com.example.chad.jurassicpark.DinoTests;
 
 import com.example.chad.jurassicpark.DinosaurSpecies.Carnivores.Velociraptor;
+import com.example.chad.jurassicpark.Food;
+import com.example.chad.jurassicpark.Locations.Habitats.Aviary;
+import com.example.chad.jurassicpark.Locations.Habitats.Lagoon;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +18,8 @@ public class TestVelociraptor {
 
     Velociraptor blue;
     Food pig;
+    Aviary aviary;
+    Lagoon lagoon;
 
     @Before
     public void before() {
@@ -23,6 +28,8 @@ public class TestVelociraptor {
         for (int i=0; i < 4; i++) {
             blue.eat(pig);
         }
+        aviary = new Aviary("Aviary 1", 5000);
+        lagoon = new Lagoon("Lagoon 1", 5000);
     }
 
     @Test
@@ -56,8 +63,13 @@ public class TestVelociraptor {
     }
 
     @Test
-    public void canKill() {
+    public void cannotEnterAviary() {
+        assertEquals("Blue is not compatible in this ecosystem.", aviary.introduceDinosaur(blue));
+    }
 
+    @Test
+    public void cannotEnterLagoon() {
+        assertEquals("Blue is not compatible in this ecosystem.", lagoon.introduceDinosaur(blue));
     }
 
 }

@@ -1,6 +1,6 @@
 package com.example.chad.jurassicpark.DinosaurSpecies.Aerials;
 
-import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
+import com.example.chad.jurassicpark.DinosaurSpeciesEnums.Species;
 import com.example.chad.jurassicpark.DinosaurSuperClasses.Aerial;
 
 /**

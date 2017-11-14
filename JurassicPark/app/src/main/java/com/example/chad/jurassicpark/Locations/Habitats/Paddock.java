@@ -30,6 +30,7 @@ public class Paddock extends DinoDwelling {
     @Override
     public String introduceDinosaur(Dinosaur dino) {
         String message = dino.getName() + " has been added to " + getName();
+        String rejectionMessage = "Ian Malcolm: Sorry, you cannot add that dinosaur to this paddock. You will upset the balance - chaos theory stuff.";
         if ((dino instanceof Herbivore) || (dino instanceof Carnivore)) {
             if (getDinosaurList().isEmpty()) {
                 super.introduceDinosaur(dino);
@@ -42,6 +43,9 @@ public class Paddock extends DinoDwelling {
                     dino.setLocation(this);
                     return message;
                 }
+                else {
+                    return rejectionMessage;
+                }
             }
             if (dino instanceof Carnivore) {
                 Dinosaur inhabitant = getDinosaurList().get(0);
@@ -50,9 +54,12 @@ public class Paddock extends DinoDwelling {
                     dino.setLocation(this);
                     return message;
                 }
+                else {
+                    return rejectionMessage;
+                }
             }
         }
-        return "Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.";
+        return rejectDinosaur(dino);
     }
 
     public Boolean hasCarnivore() {

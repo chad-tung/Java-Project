@@ -102,15 +102,15 @@ public class TestPaddock {
 
     @Test
     public void canRejectWrongDinosaurs() {
-        assertEquals("Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.", paddock2.introduceDinosaur(ptery));
-        assertEquals("Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.", paddock2.introduceDinosaur(mosa));
+        assertEquals("Ptery is not compatible in this ecosystem.", paddock2.introduceDinosaur(ptery));
+        assertEquals("Mosa is not compatible in this ecosystem.", paddock2.introduceDinosaur(mosa));
 
     }
 
     @Test
     public void canGetAddMessage() {
         assertEquals("Toppy has been added to Paddock 2", paddock2.introduceDinosaur(toppy));
-        assertEquals("Ian Malcolm: Sorry, you cannot add this dinosaur to that paddock. You will upset the balance - chaos theory stuff.", paddock9.introduceDinosaur(blue));
+        assertEquals("Ian Malcolm: Sorry, you cannot add that dinosaur to this paddock. You will upset the balance - chaos theory stuff.", paddock9.introduceDinosaur(blue));
         assertEquals(1, paddock9.getDinosaurList().size());
     }
 
@@ -160,7 +160,6 @@ public class TestPaddock {
         assertEquals(brokenPaddock, spyVisitor.getLocation());
         spyRex.rampage();
         spyRex.rampage();
-
         assertEquals(null, spyStaff.getLocation());
         assertEquals(null, spyVisitor.getLocation());
     }

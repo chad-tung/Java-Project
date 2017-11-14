@@ -40,7 +40,12 @@ public class TestVisitor {
     @Test
     public void changeLocationRemovesPrevious() {
         visitor1.changeLocation(paddock1);
+        assertEquals(paddock1, visitor1.getLocation());
+        assertEquals(1, paddock1.getVisitorList().size());
+        assertEquals(0, paddock2.getVisitorList().size());
+
         visitor1.changeLocation(paddock2);
+
         assertEquals(paddock2, visitor1.getLocation());
         assertEquals(0, paddock1.getVisitorList().size());
         assertEquals(1, paddock2.getVisitorList().size());
@@ -52,4 +57,6 @@ public class TestVisitor {
         visitor1.exitPark();
         assertNull(visitor1.getLocation());
     }
+
+
 }

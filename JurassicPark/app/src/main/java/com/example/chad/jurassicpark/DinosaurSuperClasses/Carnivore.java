@@ -1,6 +1,6 @@
 package com.example.chad.jurassicpark.DinosaurSuperClasses;
 
-import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
+import com.example.chad.jurassicpark.DinosaurSpeciesEnums.Species;
 import com.example.chad.jurassicpark.Food;
 import com.example.chad.jurassicpark.People.Staff;
 import com.example.chad.jurassicpark.People.Visitor;
@@ -43,6 +43,9 @@ public class Carnivore extends Dinosaur {
     public String huntHumans() {
         ArrayList<Staff> staff = location.getStaffList();
         ArrayList<Visitor> visitors = location.getVisitorList();
+        if (staff.isEmpty() && visitors.isEmpty()) {
+            return "There was no one to hunt. Sad times...";
+        }
         if (randomHumanGroup() == 1) {
             if (staff.isEmpty()) {
                 randomVisitorVictim(visitors);
@@ -64,6 +67,7 @@ public class Carnivore extends Dinosaur {
     public String rampage() {
         if (location.isCompromised()) {
             Food food = new Food();
+
             eat(food);
             return huntHumans();
         } else {

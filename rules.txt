@@ -29,6 +29,16 @@ Might try to also model wallets for the visitors if I have time, to allow them t
 
 Will most likely try model an app after the MVP is tested and done, but unsure how to go about it, could perhaps make the app as a visitor app, a staff app, or an overlord app.
 
-Visitor app would probably be the easiest, as it would only involve them clicking paddocks, and maybe shops to buy merchandise.
+Visitor app would probably be the easiest, as it would only involve them clicking paddocks to check what dinosaurs are there, and maybe shops to buy merchandise. It would probably be a phone app which tracks their position. Or potentially a wristband with a GPS tracker.
 
 Overlord app would be tricky, and would probably have to include a random event function, where when you do something, a random event happens, ie potentially a dinosaur rampages and damages its dwelling place, forcing you to send staff there to repair. (During which another random event could occur) Would probably have visitors roaming too.
+
+
+
+Monday thoughts:
+
+Bit of a head scratcher today, thinking of what functionalities objects should have, and shouldn't. Maybe I'm overthinking things, but paddocks shouldn't be able to add humans to their lists. I think most of the problems lie in updating the locations of the people or dinosaurs, by removing them from the previous areas and putting them in the next area, while updating their locations. This is a bit tougher to deal with now the code has expanded. Wish I had thought about this earlier...
+
+I'll do a bit of planning revision, and then probably refactor some functions. I'll hopefully have the park class done by tomorrow mid afternoon, and the runner completed by tomorrow evening.
+
+Definitely need to test more, although I think I've tested a fair amount, even though I've only got 20 or so passing tests. I think I need to split tests up more.

@@ -1,4 +1,4 @@
-package com.example.chad.jurassicpark.DinosaurInterfacesEnums;
+package com.example.chad.jurassicpark.DinosaurSpeciesEnums;
 
 /**
  * Created by chad on 11/11/2017.

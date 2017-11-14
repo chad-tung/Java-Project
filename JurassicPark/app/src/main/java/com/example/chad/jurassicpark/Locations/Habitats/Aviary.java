@@ -20,7 +20,7 @@ public class Aviary extends DinoDwelling {
             return message;
         }
         else {
-            return dino.getName() + " is not compatible in this ecosystem.";
+            return rejectDinosaur(dino);
         }
     }
 }

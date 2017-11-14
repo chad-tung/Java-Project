@@ -1,9 +1,6 @@
 package com.example.chad.jurassicpark.DinosaurSuperClasses;
 
-import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
-import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
-
-import static android.support.v7.widget.AppCompatDrawableManager.get;
+import com.example.chad.jurassicpark.DinosaurSpeciesEnums.Species;
 
 /**
  * Created by chad on 12/11/2017.

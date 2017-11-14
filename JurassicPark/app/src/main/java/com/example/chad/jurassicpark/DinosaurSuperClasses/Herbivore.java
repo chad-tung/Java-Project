@@ -1,6 +1,7 @@
 package com.example.chad.jurassicpark.DinosaurSuperClasses;
 
-import com.example.chad.jurassicpark.DinosaurInterfacesEnums.Species;
+import com.example.chad.jurassicpark.DinosaurSpeciesEnums.Species;
+import com.example.chad.jurassicpark.Food;
 import com.example.chad.jurassicpark.Locations.Habitats.Paddock;
 
 /**
@@ -23,6 +24,20 @@ public class Herbivore extends Dinosaur {
             return getName() + " has been moved to " + habitat.getName() + ".";
         } else {
             return "Carnivore present, moving " + getName() + " there would be heartless!";
+        }
+    }
+
+    @Override
+    public String rampage() {
+        if (location.isCompromised()) {
+            Food food = new Food();
+            for (Dinosaur dino: location.getDinosaurList()) {
+                dino.eat(food);
+            }
+            return "Paddocks are broken, but thanks to the docile nature of the herbivores, they just stay and eat grass.";
+        }
+        else {
+            return super.rampage();
         }
     }
 }
