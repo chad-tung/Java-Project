@@ -42,3 +42,10 @@ Bit of a head scratcher today, thinking of what functionalities objects should h
 I'll do a bit of planning revision, and then probably refactor some functions. I'll hopefully have the park class done by tomorrow mid afternoon, and the runner completed by tomorrow evening.
 
 Definitely need to test more, although I think I've tested a fair amount, even though I've only got 20 or so passing tests. I think I need to split tests up more.
+
+
+Tuesday thoughts:
+
+Bit of a muddle so far today. Tried to make the code more clean, but if I add even the smallest change to the location updates, it breaks about 15 tests. Should focus on the building of the park first and then sort out the location stuff.
+
+Location problems - When I update the dinosaur locations, it should remove them from the previous location and add to new one, then set its location. Same with humans. I think it does this from the testing, but it should be clearer in the code that it does this.
