@@ -26,6 +26,11 @@ public class TestPark {
     }
 
     @Test
+    public void checkDinosaurList() {
+        assertEquals(16, park.getDinosaurs().size());
+    }
+
+    @Test
     public void canAddPaddock() {
         assertEquals(11, park.getZones().size());
         park.addPaddock("testPaddock");

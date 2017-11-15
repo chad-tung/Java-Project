@@ -27,40 +27,108 @@ public class Paddock extends DinoDwelling {
 
 //Could probably be made cleaner.
 
+
     @Override
     public String introduceDinosaur(Dinosaur dino) {
         String message = dino.getName() + " has been added to " + getName();
         String rejectionMessage = "Ian Malcolm: Sorry, you cannot add that dinosaur to this paddock. You will upset the balance - chaos theory stuff.";
-        if ((dino instanceof Herbivore) || (dino instanceof Carnivore)) {
+        if (dino instanceof Herbivore) {
+            if (!hasCarnivore() || getDinosaurList().isEmpty()) {
+                super.introduceDinosaur(dino);
+                dino.setLocation(this);
+                return message;
+            }
+            else {
+                return rejectionMessage;
+            }
+        }
+
+        if (dino instanceof Carnivore) {
             if (getDinosaurList().isEmpty()) {
                 super.introduceDinosaur(dino);
                 dino.setLocation(this);
                 return message;
             }
-            if (dino instanceof Herbivore) {
-                if (!hasCarnivore()) {
-                    super.introduceDinosaur(dino);
-                    dino.setLocation(this);
-                    return message;
-                }
-                else {
-                    return rejectionMessage;
-                }
+            Dinosaur inhabitant = getDinosaurList().get(0);
+            if (dino.getType().equals(inhabitant.getType())) {
+                super.introduceDinosaur(dino);
+                dino.setLocation(this);
+                return message;
             }
-            if (dino instanceof Carnivore) {
-                Dinosaur inhabitant = getDinosaurList().get(0);
-                if (dino.getType() == inhabitant.getType()) {
-                    super.introduceDinosaur(dino);
-                    dino.setLocation(this);
-                    return message;
-                }
-                else {
-                    return rejectionMessage;
-                }
+            else {
+                return rejectionMessage;
             }
         }
         return rejectDinosaur(dino);
     }
+
+//    @Override
+//    public String introduceDinosaur(Dinosaur dino) {
+//        String message = dino.getName() + " has been added to " + getName();
+//        String rejectionMessage = "Ian Malcolm: Sorry, you cannot add that dinosaur to this paddock. You will upset the balance - chaos theory stuff.";
+//        if ((dino instanceof Herbivore) || (dino instanceof Carnivore)) {
+//
+//            if (getDinosaurList().isEmpty()) {
+//                super.introduceDinosaur(dino);
+//                dino.setLocation(this);
+//                return message;
+//            }
+//
+//            if (hasCarnivore()) {
+//                Dinosaur inhabitant = getDinosaurList().get(0);
+//                if (dino.getType().equals(inhabitant.getType())) {
+//                    super.introduceDinosaur(dino);
+//                    dino.setLocation(this);
+//                    return message;
+//                }
+//                else {
+//                    return rejectionMessage;
+//                }
+//            }
+//
+//
+//            if (dino instanceof Herbivore && !hasCarnivore()) {
+//                super.introduceDinosaur(dino);
+//                dino.setLocation(this);
+//                return message;
+//            }
+//
+//            if (hasCarnivore()) {
+//                Dinosaur inhabitant = getDinosaurList().get(0);
+//                if (dino.getType().equals(inhabitant.getType())) {
+//                    super.introduceDinosaur(dino);
+//                    dino.setLocation(this);
+//                    return message;
+//                }
+//                else {
+//                    return rejectionMessage;
+//                }
+//            }
+//
+////            if (dino instanceof Carnivore) {
+////                Dinosaur inhabitant = getDinosaurList().get(0);
+////                if (dino.getType().equals(inhabitant.getType())) {
+////                    super.introduceDinosaur(dino);
+////                    dino.setLocation(this);
+////                    return message;
+////                }
+////                else {
+////                    return rejectionMessage;
+////                }
+////            }
+////            else {
+////                if (!hasCarnivore()) {
+////                    super.introduceDinosaur(dino);
+////                    dino.setLocation(this);
+////                    return message;
+////                }
+////                else {
+////                    return rejectionMessage;
+////                }
+////            }
+//        }
+//        return rejectDinosaur(dino);
+//    }
 
     public Boolean hasCarnivore() {
         int counter = 0;

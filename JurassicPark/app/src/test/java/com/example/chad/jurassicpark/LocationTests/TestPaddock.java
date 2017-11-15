@@ -99,6 +99,8 @@ public class TestPaddock {
         assertEquals(0, paddock2.getDinosaurList().size());
         paddock2.introduceDinosaur(toppy);
         assertEquals(1, paddock2.getDinosaurList().size());
+        paddock2.introduceDinosaur(dippy);
+        assertEquals(2, paddock2.getDinosaurList().size());
     }
 
     @Test
@@ -170,5 +172,29 @@ public class TestPaddock {
         spyRex.rampage();
         assertEquals(null, spyStaff.getLocation());
         assertEquals(null, spyVisitor.getLocation());
+    }
+
+    @Test
+    public void canAddSameSpeciesCarnivores() {
+        paddock9.introduceDinosaur(spyRex);
+        assertEquals(2, paddock9.getDinosaurList().size());
+    }
+
+    @Test
+    public void cannotMixCarnivores() {
+        paddock9.introduceDinosaur(blue);
+        assertEquals(1, paddock9.getDinosaurList().size());
+    }
+
+    @Test
+    public void canHaveManyRaptors() {
+        Velociraptor charlie = new Velociraptor("Charlie", 5);
+        Velociraptor delta = new Velociraptor("Delta", 4);
+        paddock2.introduceDinosaur(blue);
+        paddock2.introduceDinosaur(delta);
+        paddock2.introduceDinosaur(charlie);
+
+        assertEquals(3, paddock2.getDinosaurList().size());
+
     }
 }
