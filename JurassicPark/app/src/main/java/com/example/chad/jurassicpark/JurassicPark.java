@@ -260,6 +260,7 @@ public class JurassicPark {
         if (parkIsSafe()) {
             Visitor visitor = new Visitor(name);
             visitor.setLocation(entrance);
+            visitors.add(visitor);
         }
     }
 
