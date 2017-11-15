@@ -386,7 +386,7 @@ public class JurassicPark {
 
 
     public void selectOptions() {
-        System.out.println("What would you like to do?" + '\n' + "1. Add a paddock" + '\n' + "2. Create a new Indominus Rex" + '\n' + "3. Remove dinosaur from habitat for testing" + '\n' + "4. Move a Herbivore" + '\n' + "5. See a list of dinosaurs" + '\n' + "6. Restock food" + '\n' + "7. Do a Dennis Nedry");
+        System.out.println("What would you like to do?" + '\n' + "1. Add a paddock" + '\n' + "2. Create a new Indominus Rex" + '\n' + "3. Remove dinosaur from habitat for testing" + '\n' + "4. Move a Herbivore" + '\n' + "5. See a list of dinosaurs" + '\n' + "6. Restock food" + '\n' + "7. Pull a Dennis Nedry");
         Scanner scan = new Scanner(System.in);
         int input = scan.nextInt();
 
