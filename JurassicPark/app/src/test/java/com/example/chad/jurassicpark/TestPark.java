@@ -26,6 +26,15 @@ public class TestPark {
     }
 
     @Test
+    public void canAdmitVisitors() {
+        assertEquals(5, park.getVisitors().size());
+        park.admitVisitor("Chad");
+        assertEquals(6, park.getVisitors().size());
+    }
+
+
+
+    @Test
     public void checkDinosaurList() {
         assertEquals(16, park.getDinosaurs().size());
     }
