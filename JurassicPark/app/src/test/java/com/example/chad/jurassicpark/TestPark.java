@@ -46,4 +46,18 @@ public class TestPark {
         assertEquals("testLagoon", park.getZones().get(11).getName());
     }
 
+
+//    THIS WORKS! But I really don't want to type out everything, as I'm going to make it so it returns ALL location data.
+//    @Test public void canGetPaddockNames() {
+//
+//        String expected = "Paddock 1, structural integrity of 5000, 1 visitors, 0 staff and 1 dinosaurs.\n" +
+//                "Paddock 2, structural integrity of 5000, 1 visitors, 0 staff and 1 dinosaurs.\n" +
+//                "Paddock 3, structural integrity of 5000, 0 visitors, 0 staff and 2 dinosaurs.\n" +
+//                "Paddock 4, structural integrity of 5000, 0 visitors, 0 staff and 1 dinosaurs.\n" +
+//                "Paddock 5, structural integrity of 140, 0 visitors, 0 staff and 0 dinosaurs.\n" +
+//                "Paddock 9, structural integrity of 5000, 0 visitors, 0 staff and 1 dinosaurs.\n";
+//
+//        assertEquals(expected, park.getPaddockDetails());
+//    }
+
 }

@@ -15,6 +15,7 @@ import com.example.chad.jurassicpark.DinosaurSpecies.Carnivores.Velociraptor;
 import com.example.chad.jurassicpark.DinosaurSpecies.Herbivores.Diplodocus;
 import com.example.chad.jurassicpark.DinosaurSpecies.Herbivores.Stegosaurus;
 import com.example.chad.jurassicpark.DinosaurSpecies.Herbivores.Triceratops;
+import com.example.chad.jurassicpark.DinosaurSuperClasses.Dinosaur;
 import com.example.chad.jurassicpark.Locations.DinoDwelling;
 import com.example.chad.jurassicpark.Locations.Entrance;
 import com.example.chad.jurassicpark.Locations.GeneticsLab;
@@ -27,6 +28,11 @@ import com.example.chad.jurassicpark.People.Staff;
 import com.example.chad.jurassicpark.People.Visitor;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import static android.R.attr.name;
+import static android.R.attr.type;
+import static android.R.id.input;
 
 /**
  * Created by chad on 12/11/2017.
@@ -138,6 +144,8 @@ public class JurassicPark {
         paddock4 = new Paddock("Paddock 4", 5000, dippy);
         paddock5 = new Paddock("Paddock 5", 140);
         paddock9 = new Paddock("Paddock 9", 5000, rexy);
+        paddock9.addVisitor(visitor3);
+        paddock9.addVisitor(visitor4);
 
         aviary = new Aviary("Aviary", 2000, ptery);
         aviary.introduceDinosaur(quetzy);
@@ -147,6 +155,7 @@ public class JurassicPark {
         lagoon.introduceDinosaur(plio);
         geneticsLab = new GeneticsLab();
         geneticsLab.introduceDinosaur(indoRexy);
+        geneticsLab.addVisitor(visitor5);
 
 
         visitors.add(visitor1);
@@ -190,6 +199,16 @@ public class JurassicPark {
         return zones;
     }
 
+    public String getPaddockDetails() {
+        String details = "";
+        for (ParkLocation place: getZones()) {
+            if (place instanceof Paddock) {
+                details += place.getName() + ", structural integrity of " + place.getStructuralIntegrity() + ", " + place.getVisitorList().size() + " visitors, " + place.getStaffList().size() + " staff and " + place.getDinosaurList().size() + " dinosaurs." + '\n';
+            }
+        }
+        return details;
+    }
+
     public boolean parkIsSafe() {
         int counter = 0;
         for (ParkLocation place: this.zones) {
@@ -223,5 +242,62 @@ public class JurassicPark {
         zones.add(lagoon);
     }
 
-    public void generateDinosaur()
+    public String checkVisitorNumber() {
+        return "Currently, there are " + visitors.size() + " visitors in the park.";
+    }
+
+    public void generateDinosaur(Scanner input) {
+        System.out.println("Right now, you can only generate 4 different dinosaurs." + '\n' + "1. Indominus Rex" + '\n' + "2. Tyrannosaurus Rex" + '\n' + "3. Triceratops" + '\n' + "4. Spinosaurus" + '\n' + "Please type in the number of the dinosaur you wish to create.");
+        String number = input.nextLine();
+
+        System.out.println("Okay, what do you wish to call your dinosaur?");
+
+        if (number == "1") {
+
+        }
+    }
+
+//    public void giveDinosaurName(Scanner input) {
+//
+//    }
+
+    public void start() {
+        System.out.println("Welcome to your park. Here are your location details.");
+        System.out.println(getPaddockDetails());
+        selectOptions();
+    }
+
+    public void dennisNedry() {
+        for (ParkLocation place: getZones()) {
+            place.setStructuralIntegrity(0);
+            for (Dinosaur dino: place.getDinosaurList()) {
+                dino.rampage();
+            }
+        }
+    }
+
+    public void selectOptions() {
+        System.out.println("What would you like to do?" + '\n' + "1. Add a paddock" + '\n' + "2. Create a new Indominus Rex" + '\n' + "3. Remove dinosaur from paddock from testing" + '\n' + "4. Pull a Dennis Nedry");
+        Scanner scan = new Scanner(System.in);
+        int input = scan.nextInt();
+
+        if (input == 1) {
+            Scanner name = new Scanner(System.in);
+            String newName = name.nextLine();
+            addPaddock(newName);
+            System.out.println(getPaddockDetails());
+        }
+        if (input == 2) {
+
+        }
+        if (input == 3) {
+
+        }
+        if (input == 4) {
+
+        }
+
+
+
+    }
 }
