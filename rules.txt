@@ -49,3 +49,5 @@ Tuesday thoughts:
 Bit of a muddle so far today. Tried to make the code more clean, but if I add even the smallest change to the location updates, it breaks about 15 tests. Should focus on the building of the park first and then sort out the location stuff.
 
 Location problems - When I update the dinosaur locations, it should remove them from the previous location and add to new one, then set its location. Same with humans. I think it does this from the testing, but it should be clearer in the code that it does this.
+
+My days, SOLID and DRY went out the window when making the runner. Had an issue with introducing dinosaurs, which was fixed. For some reason, it wasn't letting me introduce same species carnivores to paddocks, which was odd... I swear I did test that...
