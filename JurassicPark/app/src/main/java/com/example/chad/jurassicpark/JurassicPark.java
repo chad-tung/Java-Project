@@ -380,7 +380,9 @@ public class JurassicPark {
         for (Dinosaur dino: getDinosaurs()) {
             for (int i=0; 3 > i; i++) {
                 dino.eat(new Food());
-                stock.remove(0);
+                if (!stock.isEmpty()) {
+                    stock.remove(0);
+                }
             }
         }
     }
@@ -513,7 +515,7 @@ public class JurassicPark {
         System.out.println("Would you like to call Chris Pratt for help? (y/n)");
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
-        if (input == "y") {
+        if (input.equals("y")) {
             System.out.println("Chris Pratt talked to the velociraptors - it's all good. They said 'It was just a prank, bro.' Park has been restored to a pristine condition.");
             setupSeeds();
             start();
