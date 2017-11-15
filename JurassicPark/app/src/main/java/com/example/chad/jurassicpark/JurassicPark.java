@@ -37,6 +37,7 @@ import static android.R.attr.name;
 import static android.R.attr.type;
 import static android.R.id.input;
 import static android.R.id.message;
+import static android.support.v7.widget.AppCompatDrawableManager.get;
 
 /**
  * Created by chad on 12/11/2017.
@@ -383,7 +384,7 @@ public class JurassicPark {
         }
     }
 
-    public ArrayList<DinoDwelling> getDinoDwellings() {
+    public ArrayList<DinoDwelling> dinoDwellingsList() {
         ArrayList habitatArray = new ArrayList();
         for (ParkLocation habitat: getZones()) {
             if (habitat instanceof DinoDwelling) {
@@ -401,6 +402,15 @@ public class JurassicPark {
         return geneArray;
     }
 
+    public String getDinoDwellings() {
+        int counter = 1;
+        String message = "Here is the list of dinosaur habitats: " + '\n';
+        for (DinoDwelling place: dinoDwellingsList()) {
+            message += counter + ". " + place.getName() + '\n';
+            counter ++;
+        }
+        return message;
+    }
 
 
     public String getGeneticDinosaurs() {
@@ -414,7 +424,7 @@ public class JurassicPark {
     }
 
     public String moveGeneticDinosaur(int dinoIndex, int dwellingIndex) {
-        return getDinoDwellings().get(dwellingIndex).introduceDinosaur(geneticLabList().get(dinoIndex));
+        return dinoDwellingsList().get(dwellingIndex).introduceDinosaur(geneticLabList().get(dinoIndex));
     }
 
 
@@ -467,7 +477,6 @@ public class JurassicPark {
             }
             start();
         }
-
         if (input == 7) {
             System.out.println("What's the visitor's name?");
             Scanner name = new Scanner(System.in);
@@ -475,17 +484,15 @@ public class JurassicPark {
             admitVisitor(newName);
             start();
         }
-
         if (input == 8) {
             System.out.println(getGeneticDinosaurs());
             Scanner number = new Scanner(System.in);
             int index = number.nextInt() - 1;
-            System.out.println(getPaddocks());
+            System.out.println(getDinoDwellings());
             Scanner number2 = new Scanner(System.in);
             int index2 = number2.nextInt() - 1;
             System.out.println(moveGeneticDinosaur(index, index2));
             start();
-
         }
 
         if (input == 9) {
@@ -494,6 +501,10 @@ public class JurassicPark {
             System.out.println(getParkDetails());
             System.out.println("The movie got it wrong, the programmer always wins!");
             chrisPratt();
+        }
+
+        else {
+            System.out.println("If you can't even type in the number properly, you probably shouldn't be in charge of a park...");
         }
     }
 
