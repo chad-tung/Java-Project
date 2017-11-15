@@ -383,10 +383,44 @@ public class JurassicPark {
         }
     }
 
+    public ArrayList<DinoDwelling> getDinoDwellings() {
+        ArrayList habitatArray = new ArrayList();
+        for (ParkLocation habitat: getZones()) {
+            if (habitat instanceof DinoDwelling) {
+                habitatArray.add(habitat);
+            }
+        }
+        return habitatArray;
+    }
+
+    public ArrayList<Dinosaur> geneticLabList() {
+        ArrayList geneArray = new ArrayList();
+        for (Dinosaur dino: geneticsLab.getDinosaurList()) {
+            geneArray.add(dino);
+        }
+        return geneArray;
+    }
+
+
+
+    public String getGeneticDinosaurs() {
+        int counter = 1;
+        String message = "Here is the list of the dinosaurs: " + '\n';
+        for (Dinosaur dino: geneticLabList()) {
+            message += counter + ". " + dino.getName() + ", " + dino.getType() + ", " + dino.getLocation().getName() + '\n';
+            counter ++;
+        }
+        return message;
+    }
+
+    public String moveGeneticDinosaur(int dinoIndex, int dwellingIndex) {
+        return getDinoDwellings().get(dwellingIndex).introduceDinosaur(geneticLabList().get(dinoIndex));
+    }
+
 
 
     public void selectOptions() {
-        System.out.println("What would you like to do?" + '\n' + "1. Add a paddock" + '\n' + "2. Create a new Indominus Rex" + '\n' + "3. Remove dinosaur from habitat for testing" + '\n' + "4. Move a Herbivore" + '\n' + "5. See a list of dinosaurs" + '\n' + "6. Restock food" + '\n' + "7. Pull a Dennis Nedry");
+        System.out.println("What would you like to do?" + '\n' + "1. Add a paddock" + '\n' + "2. Create a new Indominus Rex" + '\n' + "3. Remove dinosaur from habitat for testing" + '\n' + "4. Move a Herbivore" + '\n' + "5. See a list of dinosaurs" + '\n' + "6. Restock food" + '\n' + "7. Admit Visitor" + '\n' + "8. Move dinosaur from gene lab" + '\n' + "9. Pull a Dennis Nedry");
         Scanner scan = new Scanner(System.in);
         int input = scan.nextInt();
 
@@ -427,11 +461,34 @@ public class JurassicPark {
             start();
         }
         if (input == 6) {
-            for (int i=0; 300 > i; i++) {
+            for (int i = 0; 300 > i; i++) {
                 stock.add(new Food());
+
             }
+            start();
         }
+
         if (input == 7) {
+            System.out.println("What's the visitor's name?");
+            Scanner name = new Scanner(System.in);
+            String newName = name.nextLine();
+            admitVisitor(newName);
+            start();
+        }
+
+        if (input == 8) {
+            System.out.println(getGeneticDinosaurs());
+            Scanner number = new Scanner(System.in);
+            int index = number.nextInt() - 1;
+            System.out.println(getPaddocks());
+            Scanner number2 = new Scanner(System.in);
+            int index2 = number2.nextInt() - 1;
+            System.out.println(moveGeneticDinosaur(index, index2));
+            start();
+
+        }
+
+        if (input == 9) {
             dennisNedry();
             System.out.println("You switch off all the power to the park, and you get away with dinosaur eggs. This is the state of the park.");
             System.out.println(getParkDetails());
