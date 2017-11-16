@@ -115,6 +115,7 @@ public class JurassicPark {
         dinosaurs.clear();
 
 
+
         for (int i = 0; 400 > i; i++) {
             Food food = new Food();
             stock.add(food);
@@ -124,6 +125,9 @@ public class JurassicPark {
         visitor3 = new Visitor("Visitor3");
         visitor4 = new Visitor("Visitor4");
         visitor5 = new Visitor("Visitor5");
+
+        chris = new Staff("Chris Pratt");
+        muldoon = new Staff("Robert Muldoon");
 
         entrance = new Entrance();
         safetyBunker = new SafetyBunker();
@@ -151,6 +155,7 @@ public class JurassicPark {
         paddock1.introduceDinosaur(delta);
         paddock1.introduceDinosaur(echo);
         paddock1.addVisitor(visitor1);
+        paddock1.addStaff(chris);
 
         paddock2 = new Paddock("Paddock 2", 5000, spino);
         paddock2.addVisitor(visitor2);
@@ -162,6 +167,7 @@ public class JurassicPark {
         paddock9 = new Paddock("Paddock 9", 5000, rexy);
         paddock9.addVisitor(visitor3);
         paddock9.addVisitor(visitor4);
+        paddock9.addStaff(muldoon);
 
         aviary = new Aviary("Aviary", 2000, ptery);
         aviary.introduceDinosaur(quetzy);
@@ -259,7 +265,7 @@ public class JurassicPark {
     public void admitVisitor(String name) {
         if (parkIsSafe()) {
             Visitor visitor = new Visitor(name);
-            visitor.setLocation(entrance);
+            visitor.changeLocation(entrance);
             visitors.add(visitor);
         }
     }
@@ -521,7 +527,7 @@ public class JurassicPark {
             start();
         }
         else {
-            System.out.println("Cue fail recorder Jurassic Park music...");
+            System.out.println("Lex: He left us... He left us!");
         }
     }
 }

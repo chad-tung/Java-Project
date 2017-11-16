@@ -182,8 +182,10 @@ public class TestPaddock {
 
     @Test
     public void cannotMixCarnivores() {
+        assertEquals(1, paddock9.getDinosaurList().size());
         paddock9.introduceDinosaur(blue);
         assertEquals(1, paddock9.getDinosaurList().size());
+        assertEquals(rexy, paddock9.getDinosaurList().get(0));
     }
 
     @Test

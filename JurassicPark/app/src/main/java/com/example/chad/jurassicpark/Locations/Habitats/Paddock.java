@@ -35,7 +35,6 @@ public class Paddock extends DinoDwelling {
         if (dino instanceof Herbivore) {
             if (!hasCarnivore() || getDinosaurList().isEmpty()) {
                 super.introduceDinosaur(dino);
-                dino.setLocation(this);
                 return message;
             }
             else {
@@ -46,13 +45,11 @@ public class Paddock extends DinoDwelling {
         if (dino instanceof Carnivore) {
             if (getDinosaurList().isEmpty()) {
                 super.introduceDinosaur(dino);
-                dino.setLocation(this);
                 return message;
             }
             Dinosaur inhabitant = getDinosaurList().get(0);
             if (dino.getType().equals(inhabitant.getType())) {
                 super.introduceDinosaur(dino);
-                dino.setLocation(this);
                 return message;
             }
             else {
@@ -74,26 +71,13 @@ public class Paddock extends DinoDwelling {
 //                return message;
 //            }
 //
-//            if (hasCarnivore()) {
-//                Dinosaur inhabitant = getDinosaurList().get(0);
-//                if (dino.getType().equals(inhabitant.getType())) {
-//                    super.introduceDinosaur(dino);
-//                    dino.setLocation(this);
-//                    return message;
-//                }
-//                else {
-//                    return rejectionMessage;
-//                }
-//            }
-//
-//
 //            if (dino instanceof Herbivore && !hasCarnivore()) {
 //                super.introduceDinosaur(dino);
 //                dino.setLocation(this);
 //                return message;
 //            }
 //
-//            if (hasCarnivore()) {
+//            if (dino instanceof Carnivore) {
 //                Dinosaur inhabitant = getDinosaurList().get(0);
 //                if (dino.getType().equals(inhabitant.getType())) {
 //                    super.introduceDinosaur(dino);
@@ -104,28 +88,6 @@ public class Paddock extends DinoDwelling {
 //                    return rejectionMessage;
 //                }
 //            }
-//
-////            if (dino instanceof Carnivore) {
-////                Dinosaur inhabitant = getDinosaurList().get(0);
-////                if (dino.getType().equals(inhabitant.getType())) {
-////                    super.introduceDinosaur(dino);
-////                    dino.setLocation(this);
-////                    return message;
-////                }
-////                else {
-////                    return rejectionMessage;
-////                }
-////            }
-////            else {
-////                if (!hasCarnivore()) {
-////                    super.introduceDinosaur(dino);
-////                    dino.setLocation(this);
-////                    return message;
-////                }
-////                else {
-////                    return rejectionMessage;
-////                }
-////            }
 //        }
 //        return rejectDinosaur(dino);
 //    }
